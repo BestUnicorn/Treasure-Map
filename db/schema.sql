@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS TreasureMap_db;
+CREATE DATABASE TreasureMap_db;
