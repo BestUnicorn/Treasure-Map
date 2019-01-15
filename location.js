@@ -9,13 +9,12 @@ function getLocation() {
     } else {
         location.innerHTML = "Geolocation is not supported by this browser.";
     }
-    console.log(coordinates);
 }
 
-function coordinates(position) {
-    console.log("Latitude: " + position.coords.latitude + "Longitude: " + position.coords.longitude); 
-  }
+// function coordinates(position) {
+//     console.log("Latitude: " + position.coords.latitude + "Longitude: " + position.coords.longitude); 
+//   }
   
 // getLocation();
 
-module.exports = location;
+module.exports = position.coords;
