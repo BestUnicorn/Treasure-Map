@@ -1,22 +1,21 @@
-var key = require("./keys.js");
-var request = require('request');
+// var key = require("./keys.js");
 
+var location = document.getElementById("map");
 
 function getLocation() {
-    var URL = "https://www.googleapis.com/geolocation/v1/geolocate?key=" + key;
 
-    request(URL, function (err, response, body) {
-        var data = JSON.parse(body);
-        var logData = [
-            ("latitude: " + data.location.lat),
-            ("longitude: " + data.location.lng),
-        ].join("\n");
-        fs.appendFile("log.txt", logData + "\n\n\n", function (err) {
-            if (err) throw err;
-            console.log(logData);
-            module.exports = logData;
-        });
-    });
-};
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(coordinates)
+    } else {
+        location.innerHTML = "Geolocation is not supported by this browser.";
+    }
+    console.log(coordinates);
+}
 
-getLocation();
+function coordinates(position) {
+    console.log("Latitude: " + position.coords.latitude + "Longitude: " + position.coords.longitude); 
+  }
+  
+// getLocation();
+
+module.exports = location;
