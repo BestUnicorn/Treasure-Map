@@ -1,5 +1,7 @@
 var express = require("express");
 var bodyParser = require("body-parser");
+var session = require("express-session");
+var passport = require("./config/passport");
 
 // Sets up the Express App
 // =============================================================
@@ -18,6 +20,9 @@ app.use(bodyParser.json());
 
 // Use static directory in app to provide other files for loaded pages
 app.use(express.static("view"));
+
+// Use sessions to keep track of user login status
+app.use(session({secret: "keyboard cat", resave: true, saveUninitialized: true}));
 
 // Get routes for pages and API/Database
 // =============================================================
