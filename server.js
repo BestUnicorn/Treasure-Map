@@ -16,6 +16,14 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // parse application/json
 app.use(bodyParser.json());
 
+// Use static directory in app to provide other files for loaded pages
+app.use(express.static("view"));
+
+// Get routes for pages and API/Database
+// =============================================================
+require("./routes/apiRoutes.js")(app);
+require("./routes/htmlRoutes.js")(app);
+
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
 db.sequelize.sync({ force: true }).then(function() {
