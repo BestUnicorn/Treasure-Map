@@ -1,6 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
     var Treasure = sequelize.define("Treasure", {
-      user: {
+      userName: {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
@@ -30,7 +30,15 @@ module.exports = function(sequelize, DataTypes) {
         allowNull: false,
       },
     });
-  
+
+    Treasure.associate = function(models) {
+      
+      Treasure.belongsTo(models.User, {
+        foreignKey: {
+          allowNull: false
+        }
+      });
+    };
     return Treasure;
   };
   
