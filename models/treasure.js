@@ -8,8 +8,11 @@ module.exports = function(sequelize, DataTypes) {
         }
       },
       Location : {
-        type: DataTypes.FLOAT(20, 3),
+        type: DataTypes.STRING,
         allowNull: false,
+        validate: {
+          len: [1, 150]
+        }
       },
       Latitude: {
         type: DataTypes.FLOAT(20, 3),
