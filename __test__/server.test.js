@@ -3,7 +3,7 @@ var Nightmare = require("nightmare");
 
 new Nightmare({ show: true })
  
-  .goto("http://localhost:8080/")
+  .goto("https://unicorns01.herokuapp.com/")
 
   .scrollTo(500, 0)
    
@@ -13,7 +13,7 @@ new Nightmare({ show: true })
   .wait(1000)
   
   .screenshot("login.png")
-    
+  
   .scrollTo(500, 0)
   
   .screenshot("courses.png")
