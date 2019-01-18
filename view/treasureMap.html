@@ -13,6 +13,7 @@
 </head>
 
 <body>
+
   <!-- top img -->
   <div id="index-banner" class="parallax-container">
     <div class="section no-pad-bot">
@@ -20,7 +21,7 @@
         <br><br>
         <h1 class="header center  text-lighten-2 "> Treasure Map
           <div class="row center">
-            <h3 class="header col s12 dark">"Always find your way back Mate" <a href="index.html" id="homeBtn" class="btn-floating btn-small waves-effect waves-light teal dark"><i
+            <h3 class="header col s12 dark">Always find your way back, Mate <a href="index.html" id="homeBtn" class="btn-floating btn-small waves-effect waves-light teal dark"><i
                   class="material-icons center-align">logout</i></a></h3>
           </div>
       </div>
@@ -80,51 +81,51 @@
         </div>
         <div class="parallax"><img src="background6.jpg" alt="Unsplashed background img 2"></div>
       </div>
-      <!-- footer -->
-      <footer class="page-footer teal">
-        <div class="footer-copyright">
-          <div class="container center">
-            Made by Pirate UNICORNS
-          </div>
-        </div>
-      </footer>
-      <!--  Scripts-->
-      <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-      <script src="js/materialize.js"></script>
-      <script src="js/init.js"></script>
 
-      <script>
+  <!-- footer -->
+  <footer class="page-footer teal">
+    <div class="footer-copyright">
+      <div class="container center">
+        Made by Pirate UNICORNS
+      </div>
+    </div>
+  </footer>
 
-        function cartographer() {
-          if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(initMap);
-            // markerMaker();
-            initMap();
-          } else {
-            map.innerHTML = "Geolocation is not supported by this browser.";
-            showError();
-          }
-        }
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+  <script>
 
-        function initMap(position) {
-          var latitude = position.coords.latitude
-          var longitude = position.coords.longitude
-          var loc = { lat: latitude, lng: longitude };
-          var map = new google.maps.Map(
-            document.getElementById('map_div'), { zoom: 16, center: loc });
-          // var marker = new google.maps.Marker({ position: loc, map: map });
-          var flag = {
-            url: '/images/pirate.png',
-            scaledSize: new google.maps.Size(40, 30),
-          };
-          var marker = new google.maps.Marker({
-            position: loc,
-            map: map,
-            icon: flag
-          });
-          // markerMaker(loc, map);
-          console.log(loc);
-        }
+    function cartographer() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(initMap);
+        // markerMaker();
+        initMap();
+      } else {
+        map.innerHTML = "Geolocation is not supported by this browser.";
+        showError();
+      }
+    }
+
+    function initMap(position) {
+      var latitude = position.coords.latitude
+      var longitude = position.coords.longitude
+      var loc = { lat: latitude, lng: longitude };
+      var map = new google.maps.Map(
+        document.getElementById('map_div'), { zoom: 16, center: loc });
+      // var marker = new google.maps.Marker({ position: loc, map: map });
+      var flag = {
+        url: '/images/pirate.png',
+        scaledSize: new google.maps.Size(40, 30),
+      };
+      var marker = new google.maps.Marker({
+        position: loc,
+        map: map,
+        icon: flag
+      });
+      console.log(loc);
+    }
 
     // function markerMaker(location, map) {
     //   var map = document.getElementById("map_div")
@@ -152,15 +153,6 @@
     //   // REMOVE KEY LATER
     //   // REMOVE KEY LATER
     //   // REMOVE KEY LATER
-
-    //   document.getElementById("map").innerHTML = '<img id="treasure-map" src=' + map_url + '>';
-    //   console.log(map_url);
-    //   console.log(position);
-    //   console.log(position.coords.latitude);
-    //   console.log(position.coords.longitude);
-    //   console.log(position.coords.accuracy);
-    //   // markerMaker(loc);
-    // }
 
     // function showError(error) {
     //   switch (error.code) {
