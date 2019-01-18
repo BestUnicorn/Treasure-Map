@@ -97,37 +97,46 @@
   <script src="js/init.js"></script>
   <script>
 
-    function initMap(position) {
-      // The location of Uluru
-      var lat = position.coords.latitude
-      var lng = position.coords.longitude
-      var loc = { lat: lat, lng: lng };
-      // var uluru = {lat: -25.344, lng: 131.036};
-      // The map, centered at Uluru
-      var map = new google.maps.Map(
-        document.getElementById('map_div'), { zoom: 16, center: loc });
-      // The marker, positioned at Uluru
-      var marker = new google.maps.Marker({ position: loc, map: map });
-      console.log(loc);
-    }
-
-    //     // var key = require("./routes/keys.js")
-    //     // var map = document.getElementById("map");
-
     function cartographer() {
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(initMap);
-        // showPosition();
-        console.log(positionn.coords);
-        initMap(position);
+        // markerMaker();
+        initMap();
       } else {
         map.innerHTML = "Geolocation is not supported by this browser.";
         showError();
       }
     }
 
+    function initMap(position) {
+      var latitude = position.coords.latitude
+      var longitude = position.coords.longitude
+      var loc = { lat: latitude, lng: longitude };
+      var map = new google.maps.Map(
+        document.getElementById('map_div'), { zoom: 16, center: loc });
+      // var marker = new google.maps.Marker({ position: loc, map: map });
+      var flag = {
+        url: '/images/pirate.png',
+        scaledSize: new google.maps.Size(40, 30),
+      };
+      var marker = new google.maps.Marker({
+        position: loc,
+        map: map,
+        icon: flag
+      });
+      // markerMaker(loc, map);
+      console.log(loc);
+    }
+
+    // function markerMaker(location, map) {
+    //   var map = document.getElementById("map_div")
+    // }
+
+    // var key = require("./routes/keys.js")
+    // var map = document.getElementById("map");
+
     // function showPosition(position) {
-    //         // console.log(map_url);
+    //   console.log(map_url);
     //   console.log(position);
     //   console.log(position.coords.latitude);
     //   console.log(position.coords.longitude);
@@ -172,17 +181,6 @@
     //   }
     // }
 
-    //     function markerMaker(loc){
-    //       var map = document.getElementById("treasure-map")
-    //       var flag = '/images/pirate.png';
-    //   var marker = new google.maps.Marker({
-    //     position: loc,
-    //     map: map,
-    //     icon: flag
-    //   });
-    // }
-
-    // cartographer();
 
   </script>
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-bgvW2BXyAVq7nLUtXreUW_lHx1VlIdc&callback=cartographer">
