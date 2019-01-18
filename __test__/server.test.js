@@ -33,11 +33,3 @@ describe("Treasure Homepage", function() {
         done();
       });
   }, 30000);
-
-  // .then(function() {
-  //   console.log("Done!");
-  // })
- 
-  // .catch(function(err) {
-  //   console.log(err);
-  // });
