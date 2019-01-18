@@ -10,16 +10,17 @@ describe("Treasure Map", function() {
     return Nightmare({
         show: true
       })
-      .goto("https://unicorns01.herokuapp.com/")
-
+  .goto("https://unicorns01.herokuapp.com/")
+  
+  
   .scrollTo(500, 0)
    
-  .screenshot("login.png")
+  .screenshot("__test__/login.png")
   
   .click("#signupPage")
   .wait(1000)
   
-  .screenshot("signupPage.png")
+  .screenshot("__test__/signupPage.png")
   
   .scrollTo(500, 0)
   
