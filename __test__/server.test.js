@@ -9,7 +9,7 @@ new Nightmare({ show: true })
    
   .screenshot("login.png")
   
-  .click("#download-button")
+  .click("#signupPage")
   .wait(1000)
   
   .screenshot("login.png")

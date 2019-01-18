@@ -27,7 +27,7 @@
   </div>
 
   <br><br>
-  <form class="col s12 center-align">
+  <form action="/api/signup" method="post" class="col s12 center-align">
       <div class="container center-align">
         <div  class="ard-action teal lighten-1 white-text">
           <h3>Sign Up Form </h1>
@@ -35,13 +35,13 @@
         </div>
         <div class="row">
           <div class="input-field col s12">
-            <input id="signupEmail" type="email" class="validate">
+            <input id="signupEmail" type="email" class="validate" name="email">
             <label for="email">Email</label>
           </div>
         </div>
         <div class="row">
           <div class="input-field col s12">
-            <input id="signupPassword" type="password" class="validate">
+            <input id="signupPassword" type="password" class="validate" name="password">
             <label for="password">Password</label>
           </div>
         </div>
