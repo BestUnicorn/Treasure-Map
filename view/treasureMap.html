@@ -69,62 +69,62 @@
         <div class="parallax"><img src="background8.jpg" alt="Unsplashed background img 1"></div>
       </div>
 
-  <!-- bottom img -->
-  <div class="parallax-container valign-wrapper">
-    <div class="section no-pad-bot">
-      <div class="container">
-        <div class="row center">
-          <h5 class="header col s12 light"> Live your life by a Treasure Map not a Clock! </h5>
+      <!-- bottom img -->
+      <div class="parallax-container valign-wrapper">
+        <div class="section no-pad-bot">
+          <div class="container">
+            <div class="row center">
+              <h5 class="header col s12 light"> Live your life by a Treasure Map not a Clock! </h5>
+            </div>
+          </div>
         </div>
+        <div class="parallax"><img src="background6.jpg" alt="Unsplashed background img 2"></div>
       </div>
-    </div>
-    <div class="parallax"><img src="background6.jpg" alt="Unsplashed background img 2"></div>
-  </div>
-  <!-- footer -->
-  <footer class="page-footer teal">
-    <div class="footer-copyright">
-      <div class="container center">
-        Made by Pirate UNICORNS
-      </div>
-    </div>
-  </footer>
-  <!--  Scripts-->
-  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script src="js/materialize.js"></script>
-  <script src="js/init.js"></script>
+      <!-- footer -->
+      <footer class="page-footer teal">
+        <div class="footer-copyright">
+          <div class="container center">
+            Made by Pirate UNICORNS
+          </div>
+        </div>
+      </footer>
+      <!--  Scripts-->
+      <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script src="js/materialize.js"></script>
+      <script src="js/init.js"></script>
 
-  <script>
+      <script>
 
-    function cartographer() {
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(initMap);
-        // markerMaker();
-        initMap();
-      } else {
-        map.innerHTML = "Geolocation is not supported by this browser.";
-        showError();
-      }
-    }
+        function cartographer() {
+          if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(initMap);
+            // markerMaker();
+            initMap();
+          } else {
+            map.innerHTML = "Geolocation is not supported by this browser.";
+            showError();
+          }
+        }
 
-    function initMap(position) {
-      var latitude = position.coords.latitude
-      var longitude = position.coords.longitude
-      var loc = { lat: latitude, lng: longitude };
-      var map = new google.maps.Map(
-        document.getElementById('map_div'), { zoom: 16, center: loc });
-      // var marker = new google.maps.Marker({ position: loc, map: map });
-      var flag = {
-        url: '/images/pirate.png',
-        scaledSize: new google.maps.Size(40, 30),
-      };
-      var marker = new google.maps.Marker({
-        position: loc,
-        map: map,
-        icon: flag
-      });
-      // markerMaker(loc, map);
-      console.log(loc);
-    }
+        function initMap(position) {
+          var latitude = position.coords.latitude
+          var longitude = position.coords.longitude
+          var loc = { lat: latitude, lng: longitude };
+          var map = new google.maps.Map(
+            document.getElementById('map_div'), { zoom: 16, center: loc });
+          // var marker = new google.maps.Marker({ position: loc, map: map });
+          var flag = {
+            url: '/images/pirate.png',
+            scaledSize: new google.maps.Size(40, 30),
+          };
+          var marker = new google.maps.Marker({
+            position: loc,
+            map: map,
+            icon: flag
+          });
+          // markerMaker(loc, map);
+          console.log(loc);
+        }
 
     // function markerMaker(location, map) {
     //   var map = document.getElementById("map_div")
@@ -180,9 +180,9 @@
     // }
 
 
-  </script>
-  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-bgvW2BXyAVq7nLUtXreUW_lHx1VlIdc&callback=cartographer">
-  </script>
+      </script>
+      <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-bgvW2BXyAVq7nLUtXreUW_lHx1VlIdc&callback=cartographer">
+      </script>
 
 </body>
 
