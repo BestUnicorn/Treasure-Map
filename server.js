@@ -3,22 +3,13 @@ var bodyParser = require("body-parser");
 var session = require("express-session");
 var passport = require("./config/passport");
 
-// Sets up the Express App
-// =============================================================
-var app = express();
-var PORT = process.env.PORT || 8080;
 
-// Requiring our models for syncing
+var PORT = process.env.PORT || 8080;
 var db = require("./models");
 
-// Sets up the Express app to handle data parsing
-
-// parse application/x-www-form-urlencoded
+var app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
-// parse application/json
 app.use(bodyParser.json());
-
-// Use static directory in app to provide other files for loaded pages
 app.use(express.static("view"));
 
 // Use sessions to keep track of user login status
