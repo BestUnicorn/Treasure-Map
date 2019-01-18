@@ -102,7 +102,7 @@
             <h5 class="center">Treasure Map</h5>
             <div class="mapouter">
               <div class="gmap_canvas">
-                <div width="600" height="500" id="map">
+                <div width="600" height="500" id="map_div">
                 </div>
               </div>
               <style>
@@ -117,6 +117,11 @@
                   background: none !important;
                   height: 500px;
                   width: 600px;
+                }
+
+                #map_div {
+                  height: 500px !important;
+                  width: 600px !important;
                 }
               </style>
             </div>
@@ -207,83 +212,96 @@
   <script src="js/materialize.js"></script>
   <script src="js/init.js"></script>
   <script>
-    // var key = require("./routes/keys.js")
-    var map = document.getElementById("map");
+
+    function initMap(position) {
+      // The location of Uluru
+      var lat = position.coords.latitude
+      var lng = position.coords.longitude
+      var loc = { lat: lat, lng: lng };
+      // var uluru = {lat: -25.344, lng: 131.036};
+      // The map, centered at Uluru
+      var map = new google.maps.Map(
+        document.getElementById('map_div'), { zoom: 16, center: loc });
+      // The marker, positioned at Uluru
+      var marker = new google.maps.Marker({ position: loc, map: map });
+      console.log(loc);
+    }
+
+    //     // var key = require("./routes/keys.js")
+    //     // var map = document.getElementById("map");
 
     function cartographer() {
       if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
-        // console.log(position.coords);
-        // logPosition();
-        showPosition();
+        navigator.geolocation.getCurrentPosition(initMap);
+        // showPosition();
+        console.log(positionn.coords);
+        initMap(position);
       } else {
         map.innerHTML = "Geolocation is not supported by this browser.";
         showError();
       }
     }
 
-    // function logPosition(position) {
-    //   console.log(position.coords);
+    // function showPosition(position) {
+    //         // console.log(map_url);
+    //   console.log(position);
     //   console.log(position.coords.latitude);
     //   console.log(position.coords.longitude);
     //   console.log(position.coords.accuracy);
-    //   // showPosition();
+    // };
+
+    //   // REMOVE KEY LATER
+    //   // REMOVE KEY LATER
+    //   // REMOVE KEY LATER
+    //   // REMOVE KEY LATER
+    //   // REMOVE KEY LATER
+    //   var map_url = "https://maps.googleapis.com/maps/api/staticmap?center=" + loc + "&zoom=14&size=400x300&sensor=false&key=AIzaSyD-bgvW2BXyAVq7nLUtXreUW_lHx1VlIdc";
+    //   // REMOVE KEY LATER
+    //   // REMOVE KEY LATER
+    //   // REMOVE KEY LATER
+    //   // REMOVE KEY LATER
+    //   // REMOVE KEY LATER
+
+    //   document.getElementById("map").innerHTML = '<img id="treasure-map" src=' + map_url + '>';
+    //   console.log(map_url);
+    //   console.log(position);
+    //   console.log(position.coords.latitude);
+    //   console.log(position.coords.longitude);
+    //   console.log(position.coords.accuracy);
+    //   // markerMaker(loc);
     // }
 
-    function showPosition(position) {
-      var loc = position.coords.latitude + "," + position.coords.longitude;
+    // function showError(error) {
+    //   switch (error.code) {
+    //     case error.PERMISSION_DENIED:
+    //       console.log("User denied the request for Geolocation.")
+    //       break;
+    //     case error.POSITION_UNAVAILABLE:
+    //       console.log("Location information is unavailable.")
+    //       break;
+    //     case error.TIMEOUT:
+    //       console.log("The request to get user location timed out.")
+    //       break;
+    //     case error.UNKNOWN_ERROR:
+    //       console.log("An unknown error occurred.")
+    //       break;
+    //   }
+    // }
 
-      // REMOVE KEY LATER
-      // REMOVE KEY LATER
-      // REMOVE KEY LATER
-      // REMOVE KEY LATER
-      // REMOVE KEY LATER
-      var map_url = "https://maps.googleapis.com/maps/api/staticmap?center=" + loc + "&zoom=14&size=400x300&sensor=false&key=AIzaSyD-bgvW2BXyAVq7nLUtXreUW_lHx1VlIdc";
-      // REMOVE KEY LATER
-      // REMOVE KEY LATER
-      // REMOVE KEY LATER
-      // REMOVE KEY LATER
-      // REMOVE KEY LATER
+    //     function markerMaker(loc){
+    //       var map = document.getElementById("treasure-map")
+    //       var flag = '/images/pirate.png';
+    //   var marker = new google.maps.Marker({
+    //     position: loc,
+    //     map: map,
+    //     icon: flag
+    //   });
+    // }
 
-      document.getElementById("map").innerHTML = '<img id="treasure-map" src=' + map_url + '>';
-      console.log(map_url);
-      console.log(position);
-      console.log(position.coords.latitude);
-      console.log(position.coords.longitude);
-      console.log(position.coords.accuracy);
-      // markerMaker(loc);
-    }
+    // cartographer();
 
-    function showError(error) {
-      switch (error.code) {
-        case error.PERMISSION_DENIED:
-          console.log("User denied the request for Geolocation.")
-          break;
-        case error.POSITION_UNAVAILABLE:
-          console.log("Location information is unavailable.")
-          break;
-        case error.TIMEOUT:
-          console.log("The request to get user location timed out.")
-          break;
-        case error.UNKNOWN_ERROR:
-          console.log("An unknown error occurred.")
-          break;
-      }
-    }
-
-//     function markerMaker(loc){
-//       var map = document.getElementById("treasure-map")
-//       var flag = '/images/pirate.png';
-//   var marker = new google.maps.Marker({
-//     position: loc,
-//     map: map,
-//     icon: flag
-//   });
-// }
-
-    cartographer();
-    // logPosition();
-    // showPosition();
+  </script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-bgvW2BXyAVq7nLUtXreUW_lHx1VlIdc&callback=cartographer">
   </script>
 
 </body>
