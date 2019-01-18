@@ -1,6 +1,6 @@
 var Nightmare = require("nightmare");
 
-describe("Treasure Homepage", function() {
+describe("Treasure Map", function() {
   // The default tests in mocha is 2 seconds.
   // Extending it to 30 seconds to have time to load the pages
   var signupPage = '#header__homepage';
@@ -33,3 +33,5 @@ describe("Treasure Homepage", function() {
         done();
       });
   }, 30000);
+
+});
