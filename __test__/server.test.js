@@ -1,9 +1,16 @@
 var Nightmare = require("nightmare");
 
+describe("Treasure Homepage", function() {
+  // The default tests in mocha is 2 seconds.
+  // Extending it to 30 seconds to have time to load the pages
+  var signupPage = '#header__homepage';
 
-new Nightmare({ show: true })
- 
-  .goto("https://unicorns01.herokuapp.com/")
+  it("should require me to signup or login", function(done) {
+    // ID for the login button.
+    return Nightmare({
+        show: true
+      })
+      .goto("https://unicorns01.herokuapp.com/")
 
   .scrollTo(500, 0)
    
@@ -12,18 +19,25 @@ new Nightmare({ show: true })
   .click("#signupPage")
   .wait(1000)
   
-  .screenshot("login.png")
+  .screenshot("signupPage.png")
   
   .scrollTo(500, 0)
   
-  .screenshot("courses.png")
-  
-  .end()
-  
-  .then(function() {
-    console.log("Done!");
-  })
+      .evaluate(function() {
+        return document.title;
+      })
+      .end()
+      // Asset the title is as expected
+      .then(function(title) {
+        expect(title).toEqual("signupPage | TreasureMap");
+        done();
+      });
+  }, 30000);
+
+  // .then(function() {
+  //   console.log("Done!");
+  // })
  
-  .catch(function(err) {
-    console.log(err);
-  });
+  // .catch(function(err) {
+  //   console.log(err);
+  // });
