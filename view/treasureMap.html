@@ -45,9 +45,9 @@
     <div class="section no-pad-bot">
       <div class="container">
         <br><br>
-        <h1 class="header center teal-text text-lighten-2"> Treasure Map 
-            <a href="index.html" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">logout
-              </i></a>
+        <h1 class="header center teal-text text-lighten-2"> Treasure Map
+          <a href="index.html" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">logout
+            </i></a>
         </h1>
         <div class="row center">
           <h5 class="header col s12 light">Always find your way back!</h5>
@@ -71,9 +71,8 @@
           <h4 id="map_name">Map</h4>
           <div class="mapouter">
             <div class="gmap_canvas">
-              <iframe width="600" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=university%20of%20san%20francisco&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+              <iframe width="600" height="500" id="map">
               </iframe>
-              <a href="https://www.crocothemes.net">deadline wordpress themes</a>
             </div>
             <style>.mapouter{text-align:right;height:500px;width:600px;}.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:600px;}</style>
           </div>
@@ -145,10 +144,10 @@
             <h5 class="center">Treasure Map</h5>
             <div class="mapouter">
               <div class="gmap_canvas">
-                <iframe width="600" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=university%20of%20san%20francisco&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                  frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
-                </iframe>
-                <a href="https://www.crocothemes.net">deadline wordpress themes</a>
+
+                <div width="600" height="500" id="map">
+                </div>
+
               </div>
               <style>
                 .mapouter {
@@ -221,6 +220,85 @@
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="js/materialize.js"></script>
   <script src="js/init.js"></script>
+  <script>
+    // var key = require("./routes/keys.js")
+    var map = document.getElementById("map");
+
+    function cartographer() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+        // console.log(position.coords);
+        // logPosition();
+        showPosition();
+      } else {
+        map.innerHTML = "Geolocation is not supported by this browser.";
+        showError();
+      }
+    }
+
+    // function logPosition(position) {
+    //   console.log(position.coords);
+    //   console.log(position.coords.latitude);
+    //   console.log(position.coords.longitude);
+    //   console.log(position.coords.accuracy);
+    //   // showPosition();
+    // }
+
+    function showPosition(position) {
+      var loc = position.coords.latitude + "," + position.coords.longitude;
+
+      // REMOVE KEY LATER
+      // REMOVE KEY LATER
+      // REMOVE KEY LATER
+      // REMOVE KEY LATER
+      // REMOVE KEY LATER
+      var map_url = "https://maps.googleapis.com/maps/api/staticmap?center=" + loc + "&zoom=14&size=400x300&sensor=false&key=AIzaSyD-bgvW2BXyAVq7nLUtXreUW_lHx1VlIdc";
+      // REMOVE KEY LATER
+      // REMOVE KEY LATER
+      // REMOVE KEY LATER
+      // REMOVE KEY LATER
+      // REMOVE KEY LATER
+
+      document.getElementById("map").innerHTML = '<img id="treasure-map" src=' + map_url + '>';
+      console.log(map_url);
+      console.log(position);
+      console.log(position.coords.latitude);
+      console.log(position.coords.longitude);
+      console.log(position.coords.accuracy);
+      // markerMaker(loc);
+    }
+
+    function showError(error) {
+      switch (error.code) {
+        case error.PERMISSION_DENIED:
+          console.log("User denied the request for Geolocation.")
+          break;
+        case error.POSITION_UNAVAILABLE:
+          console.log("Location information is unavailable.")
+          break;
+        case error.TIMEOUT:
+          console.log("The request to get user location timed out.")
+          break;
+        case error.UNKNOWN_ERROR:
+          console.log("An unknown error occurred.")
+          break;
+      }
+    }
+
+//     function markerMaker(loc){
+//       var map = document.getElementById("treasure-map")
+//       var flag = '/images/pirate.png';
+//   var marker = new google.maps.Marker({
+//     position: loc,
+//     map: map,
+//     icon: flag
+//   });
+// }
+
+    cartographer();
+    // logPosition();
+    // showPosition();
+  </script>
 
 </body>
 

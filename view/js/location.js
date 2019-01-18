@@ -16,5 +16,3 @@ function getLocation() {
 //   }
   
 // getLocation();
-
-module.exports = position.coords;
