@@ -7,7 +7,7 @@ module.exports = function(app) {
     // Route to get user information from login and check it against the database
     app.post('/api/login', passport.authenticate("local"), function(req, res) {
         // Send json back to allow for login to occur (will be done through the front end) but only if authentication succeeds
-        res.json("login success");
+        res.json(true);
     });
 
     // Route to post user info to sign up (which will be checked against existing users beforehand)
