@@ -448,29 +448,31 @@
 
     function markerMaker(location, map) {
       var map = map;
-      // var loc = location;
+      var loc = location;
       var x = {
         url: '/images/x.png',
         scaledSize: new google.maps.Size(40, 30)
       };
-      // var darkx = {
-      //   url: '/images/dark-x.png',
-      //   scaledSize: new google.maps.Size(40, 30)
-      // };
+    //   var darkx = {
+    //     url: '/images/dark-x.png',
+    //     scaledSize: new google.maps.Size(40, 30)
+    //   };
+
+    // need to get lat/long/accuracy from db
       var marker = new google.maps.Marker({
-        position: {lat: 33.6561723, lng: -117.8584635},
+        position: {lat: db.latitude, lng: db.longitude},
         map: map,
         icon: x
       });
-      // var darker = new google.maps.Marker({
-      //   position: {lat: 33.6361925, lng: -117.8384837},
-      //   map: map,
-      //   icon: darkx
-      // });
+
+    //   var darker = new google.maps.Marker({
+    //     position: {lat: 33.6361925, lng: -117.8384837},
+    //     map: map,
+    //     icon: darkx
+    //   });
     }
 
-    // var key = require("./routes/keys.js")
-    // var map = document.getElementById("map");
+    var map = document.getElementById("map");
 
     // function showPosition(position) {
     //   console.log(map_url);
@@ -480,22 +482,22 @@
     //   console.log(position.coords.accuracy);
     // };
 
-    // function showError(error) {
-    //   switch (error.code) {
-    //     case error.PERMISSION_DENIED:
-    //       console.log("User denied the request for Geolocation.")
-    //       break;
-    //     case error.POSITION_UNAVAILABLE:
-    //       console.log("Location information is unavailable.")
-    //       break;
-    //     case error.TIMEOUT:
-    //       console.log("The request to get user location timed out.")
-    //       break;
-    //     case error.UNKNOWN_ERROR:
-    //       console.log("An unknown error occurred.")
-    //       break;
-    //   }
-    // }
+    function showError(error) {
+      switch (error.code) {
+        case error.PERMISSION_DENIED:
+          console.log("User denied the request for Geolocation.")
+          break;
+        case error.POSITION_UNAVAILABLE:
+          console.log("Location information is unavailable.")
+          break;
+        case error.TIMEOUT:
+          console.log("The request to get user location timed out.")
+          break;
+        case error.UNKNOWN_ERROR:
+          console.log("An unknown error occurred.")
+          break;
+      }
+    }
 
   </script>
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-bgvW2BXyAVq7nLUtXreUW_lHx1VlIdc&callback=cartographer">
