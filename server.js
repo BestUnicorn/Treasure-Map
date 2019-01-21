@@ -2,6 +2,7 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var session = require("express-session");
 var passport = require("./config/passport");
+var path = require("path");
 
 
 var PORT = process.env.PORT || 8080;
@@ -10,7 +11,8 @@ var db = require("./models");
 var app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(express.static("view"));
+app.use(express.static("view", {index: false})); // Prevents html route '/' from forcibly defaulting to index (allowing redirect to work)
+
 
 // Use sessions to keep track of user login status
 app.use(session({secret: "keyboard cat", resave: true, saveUninitialized: true}));
