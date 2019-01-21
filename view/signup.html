@@ -18,45 +18,40 @@
         <br><br>
         <h1 class="header center  text-lighten-2 "> Treasure Map
           <div class="row center">
-            <h3 class="header col s12 dark">"Dead Men Tell no Tales!"      <a href="index.html" id="homeBtn" class="btn-floating btn-small waves-effect waves-light teal dark"><i
+            <h3 class="header col s12 dark">"Dead Men Tell no Tales!" <a href="/" id="homeBtn" class="btn-floating btn-small waves-effect waves-light teal dark"><i
                   class="material-icons center-align">home</i></a></h3>
           </div>
       </div>
     </div>
-    <div class="parallax"><img src="background6.jpg" alt="Unsplashed background img 1"></div>
+    <div class="parallax"><img src="images/background6.jpg" alt="Unsplashed background img 1"></div>
   </div>
 
   <br><br>
   <form class="col s12 center-align">
-      <div class="container center-align">
-        <div  class="ard-action teal lighten-1 white-text">
-          <h3>Sign Up Form </h1>
-          </h3>
-        </div>
-        <div class="row">
-          <div class="input-field col s12">
-            <input id="signupEmail" type="email" class="validate">
-            <label for="email">Email</label>
-          </div>
-        </div>
-        <div class="row">
-          <div class="input-field col s12">
-            <input id="signupPassword" type="password" class="validate">
-            <label for="password">Password</label>
-          </div>
+    <div class="container center-align">
+      <div class="ard-action teal lighten-1 white-text">
+        <h3>Sign Up Form </h1>
+        </h3>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="signupEmail" type="email" class="validate" name="email">
+          <label for="email">Email</label>
         </div>
       </div>
-      <!-- dummy button with <a "treasureMap route" -->
-      <button class="btn waves-effect waves-light" type="submit" name="action"><a href="treasureMap.html">Submit</a>
-        <i class="material-icons right">send</i>
-      </button>
-      <!-- real Button once submit with email and password should take you to treasureMap route -->
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="signupPassword" type="password" class="validate" name="password">
+          <label for="password">Password</label>
+        </div>
+      </div>
+
       <button class="btn waves-effect waves-light" type="submit" name="action" id="signupBtn">Sign Up
         <i class="material-icons right">send</i>
       </button>
-      </div>
-    </form>
-    <br><br>
+    </div>
+  </form>
+  <br><br>
 
   <footer class="page-footer teal">
     <div class="footer-copyright">
@@ -69,6 +64,7 @@
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="js/materialize.js"></script>
   <script src="js/init.js"></script>
+  <script src="js/signupQuery.js"></script>
 
 </body>
 

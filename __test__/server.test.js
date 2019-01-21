@@ -1,6 +1,6 @@
 var Nightmare = require("nightmare");
 
-describe("Treasure Homepage", function() {
+describe("Treasure Map", function() {
   // The default tests in mocha is 2 seconds.
   // Extending it to 30 seconds to have time to load the pages
   var signupPage = '#header__homepage';
@@ -10,16 +10,17 @@ describe("Treasure Homepage", function() {
     return Nightmare({
         show: true
       })
-      .goto("https://unicorns01.herokuapp.com/")
-
+  .goto("https://unicorns01.herokuapp.com/")
+  
+  
   .scrollTo(500, 0)
    
-  .screenshot("login.png")
+  .screenshot("__test__/login.png")
   
   .click("#signupPage")
   .wait(1000)
   
-  .screenshot("signupPage.png")
+  .screenshot("__test__/signupPage.png")
   
   .scrollTo(500, 0)
   
@@ -34,10 +35,4 @@ describe("Treasure Homepage", function() {
       });
   }, 30000);
 
-  // .then(function() {
-  //   console.log("Done!");
-  // })
- 
-  // .catch(function(err) {
-  //   console.log(err);
-  // });
+});
