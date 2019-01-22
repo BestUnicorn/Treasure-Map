@@ -53,6 +53,12 @@ describe("Treasure Map", function() {
   .screenshot("__test__/login.png")
       
   .click("#loginBtn")
+
+  .wait(1000)
+
+  .scrollTo(600, 0)
+
+  .screenshot("__test__/login1.png")
   
   
   .evaluate(function () {

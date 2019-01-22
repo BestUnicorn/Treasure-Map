@@ -19,7 +19,7 @@
     "collectCoverageFrom": [
       "server.test.js"
     ],
-    "collectCoverage": false
+    "collectCoverage": true
   },
   "bugs": {
     "url": "https://github.com/WilliamL99/Treasure-Map/issues"
