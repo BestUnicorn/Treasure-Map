@@ -16,6 +16,9 @@
   "jest": {
     "automock": false,
     "verbose": true,
+    "collectCoverageFrom": [
+      "server.test.js"
+    ],
     "collectCoverage": false
   },
   "bugs": {
