@@ -16,7 +16,10 @@
   "jest": {
     "automock": false,
     "verbose": true,
-    "collectCoverage": false
+    "collectCoverageFrom": [
+      "server.test.js"
+    ],
+    "collectCoverage": true
   },
   "bugs": {
     "url": "https://github.com/WilliamL99/Treasure-Map/issues"
